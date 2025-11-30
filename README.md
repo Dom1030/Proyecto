@@ -2,11 +2,11 @@
 
 Este proyecto consta de dos partes principales: un backend de autenticación (`auth-system-backend`) y una aplicación frontend de tienda (`my-store-app`). El backend proporciona una API para autenticación de usuarios utilizando MySQL, Sequelize, JWT y bcrypt. El frontend es una aplicación React construida con Vite y Tailwind CSS, que puede consumir la API del backend.
 
-## Requisitos Previos
+## Lo que necesitas para ejecutar mi proyecto
 
-- **Node.js** instalado (versión 16 o superior recomendada).
-- **MySQL** instalado y corriendo en tu sistema.
-- Crear una base de datos en MySQL llamada `auth_db` (o el nombre que configures en el archivo `.env`).
+- **Node.js** instalado.
+- **MySQL** instalado y funcionando en tu computadora.
+- Crear una base de datos en MySQL llamada `auth_db` (o como la configures en el archivo `.env`).
 
 ## auth-system-backend (Backend de Autenticación)
 
@@ -22,9 +22,9 @@ Este proyecto consta de dos partes principales: un backend de autenticación (`a
    npm install
    ```
 
-### Configuración
+### Cómo configurar el backend
 
-3. Crea un archivo `.env` en la raíz del directorio `auth-system-backend` con las siguientes variables de entorno (ajusta los valores según tu configuración de MySQL):
+3. Crea un archivo `.env` en la raíz del directorio `auth-system-backend` con estas variables (ajusta según tu MySQL):
    ```
    DB_NAME=auth_db
    DB_USER=root
@@ -37,13 +37,13 @@ Este proyecto consta de dos partes principales: un backend de autenticación (`a
    ```
 
    - `DB_NAME`: Nombre de la base de datos MySQL.
-   - `DB_USER`: Usuario de MySQL (por defecto `root`).
-   - `DB_PASSWORD`: Contraseña de MySQL (deja vacío si no hay contraseña).
+   - `DB_USER`: Usuario de MySQL (normalmente `root`).
+   - `DB_PASSWORD`: Contraseña de MySQL (vacío si no tienes).
    - `DB_HOST`: Host de MySQL (generalmente `localhost`).
-   - `DB_PORT`: Puerto de MySQL (por defecto `3306`).
-   - `JWT_SECRET`: Secreto para firmar los tokens JWT (usa un valor seguro en producción).
-   - `JWT_EXPIRES_IN`: Tiempo de expiración del token (ej. `1h` para 1 hora).
-   - `PORT`: Puerto en el que correrá el servidor (por defecto `3001`).
+   - `DB_PORT`: Puerto de MySQL (normalmente `3306`).
+   - `JWT_SECRET`: Secreto para los tokens JWT (usa algo seguro en producción).
+   - `JWT_EXPIRES_IN`: Cuánto duran los tokens (ej. `1h` para 1 hora).
+   - `PORT`: Puerto del servidor (por defecto `3001`).
 
 ### Ejecución
 
@@ -89,17 +89,12 @@ El backend estará disponible en `http://localhost:3001`. Puedes probar los endp
 
    La aplicación se abrirá en `http://localhost:5173` (puerto por defecto de Vite). Puedes acceder desde tu navegador.
 
-## Uso General
+## Cómo usar mi aplicación
 
 - Asegúrate de que el backend esté corriendo antes de usar el frontend.
-- El frontend puede hacer solicitudes HTTP al backend usando Axios para autenticación.
+- El frontend hace peticiones HTTP al backend usando Axios para autenticación.
 - Para producción, construye el frontend con `npm run build` y sirve los archivos estáticos.
-- Recuerda configurar variables de entorno seguras y no commitear el archivo `.env` al repositorio (ya está en `.gitignore`).
+- Recuerda configurar variables de entorno seguras y no subir el archivo `.env` al repositorio (ya está en `.gitignore`).
 
-## Notas Adicionales
-
-- Si encuentras errores de conexión a MySQL, verifica que el servicio esté corriendo y que las credenciales en `.env` sean correctas.
-- Los modelos de la base de datos se sincronizan automáticamente al iniciar el servidor (con `alter: true` para modificar tablas si es necesario).
-- El frontend incluye Tailwind CSS para estilos y ESLint para linting.
 
 
